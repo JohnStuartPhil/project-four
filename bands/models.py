@@ -1,7 +1,10 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-STATUS = ((0, "Draft"), (1, "Published"))
+STATUS = (
+    (0, "Draft"),
+    (1, "Published")
+    )
 
 GENRE_CHOICES = (
     ('Please Select', 'Please Select'),
@@ -22,6 +25,22 @@ MEMBER_CHOICES = (
     ('Six', 'Six'),
     ('Seven or more', 'Seven or more')
     )
+
+RATING_CHOICES = (
+    ('Please Select', 'Please Select'),
+    ('very bad', 'very bad'),
+    ('bad', 'bad'),
+    ('average', 'average'),
+    ('good', 'good'),
+    ('very good', 'very good')
+    )
+
+AGAIN_CHOICES = (
+    ('Please Select', 'Please Select'),
+    ('yes', 'yes'),
+    ('no', 'no'),
+    ('maybe', 'maybe')
+    )
 # Create your models here.
 
 
@@ -40,3 +59,17 @@ class Band(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
     status = models.IntegerField(choices=STATUS, default=0)
+
+
+class Opinion(models.Model):
+    band_name = models.ForeignKey(
+        Band, on_delete=models.CASCADE, related_name="opinions")
+    author = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name="opinionator")
+    rating = models.CharField(choices=RATING_CHOICES, default='Please select',
+                             unique=False)
+    again = models.CharField(choices=AGAIN_CHOICES, default='Please select',
+                             unique=False)
+    your_opinion = models.TextField()
+    approved = models.BooleanField(default=False)
+    created_on = models.DateTimeField(auto_now_add=True)
