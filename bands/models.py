@@ -53,6 +53,7 @@ class Band(models.Model):
         choices=MEMBER_CHOICES, default='Please select', unique=False
     )
     review = models.TextField()
+    review_excerpt = models.TextField(blank=True)
     author = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="band_posts"
     )
@@ -77,6 +78,7 @@ class Opinion(models.Model):
     again = models.CharField(choices=AGAIN_CHOICES, default='Please select',
                              unique=False)
     your_opinion = models.TextField()
+    your_opinion_excerpt = models.TextField(blank=True)
     approved = models.BooleanField(default=False)
     created_on = models.DateTimeField(auto_now_add=True)
 
