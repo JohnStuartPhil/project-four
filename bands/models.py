@@ -60,6 +60,12 @@ class Band(models.Model):
     updated_on = models.DateTimeField(auto_now=True)
     status = models.IntegerField(choices=STATUS, default=0)
 
+    class Meta:
+        ordering = ["-created_on"]
+
+    def __str__(self):
+        return f"{self.band_name} reviewed by {self.author}"
+
 
 class Opinion(models.Model):
     band_name = models.ForeignKey(
@@ -73,3 +79,9 @@ class Opinion(models.Model):
     your_opinion = models.TextField()
     approved = models.BooleanField(default=False)
     created_on = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ["created_on"]
+
+    def __str__(self):
+        return f"Opinion given by {self.author}: {self.your_opinion}"
