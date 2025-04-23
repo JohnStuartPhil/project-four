@@ -5,5 +5,9 @@ from .models import Band
 # Create your views here.
 
 
+# class BandList(generic.ListView):
+    # model = Band
+
 class BandList(generic.ListView):
-    model = Band
+    queryset = Band.objects.filter(status=1)
+    # template_name = "band_list.html"
