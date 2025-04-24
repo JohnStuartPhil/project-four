@@ -11,3 +11,5 @@ from .models import Band
 class BandList(generic.ListView):
     queryset = Band.objects.filter(status=1)
     # template_name = "band_list.html"
+    template_name = "bands/index.html"
+    paginate_by = 6
