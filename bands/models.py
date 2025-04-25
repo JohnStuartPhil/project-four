@@ -73,8 +73,8 @@ class Opinion(models.Model):
         Band, on_delete=models.CASCADE, related_name="opinions")
     author = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="opinionator")
-    rating = models.CharField(choices=RATING_CHOICES, default='Please select',
-                             unique=False)
+    rating = models.CharField(choices=RATING_CHOICES,
+                              default='Please select', unique=False)
     again = models.CharField(choices=AGAIN_CHOICES, default='Please select',
                              unique=False)
     your_opinion = models.TextField()

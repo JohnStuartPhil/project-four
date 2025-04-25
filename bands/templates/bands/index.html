@@ -18,9 +18,12 @@
                                     <p class="author">Author: {{ band.author }}</p>
                                 </div>
                             </div>
-                            <a href="#" class="post-link">
+                            <a href="{% url 'band_detail' band.slug %}" class="post-link">
                                 <h2 class="card-title">{{ band.band_name }}</h2>
+                                <h3 class="card-text">Genre: {{ band.genre }}</h3>
+                                <h4 class="card-text">Number of members: {{ band.number_of_members }}</h4>
                                 <p class="card-text">{{ band.review_excerpt }}</p>
+                                
                             </a>
 
                             <hr />

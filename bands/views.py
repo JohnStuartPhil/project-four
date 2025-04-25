@@ -1,15 +1,35 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.views import generic
 from .models import Band
 
 # Create your views here.
 
 
-# class BandList(generic.ListView):
-    # model = Band
-
 class BandList(generic.ListView):
     queryset = Band.objects.filter(status=1)
-    # template_name = "band_list.html"
     template_name = "bands/index.html"
     paginate_by = 6
+
+
+def band_detail(request, slug):
+    """
+    Display an individual :model:`bands.Band`.
+
+    **Context**
+
+    ``bandpost``
+        An instance of :model:`bands.Band`.
+
+    **Template:**
+
+    :template:`bands/band_detail.html`
+    """
+
+    queryset = Band.objects.filter(status=1)
+    band = get_object_or_404(queryset, slug=slug)
+
+    return render(
+        request,
+        "bands/band_detail.html",
+        {"band": band},
+    )
