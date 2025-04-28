@@ -29,6 +29,50 @@
             </div>
         </div>
     </div>
+
+ <!-- Displaying count of opinions -->
+ <div class="row">
+    <div class="col-12">
+      <strong class="text-secondary">
+        <i class="far fa-comments"></i> {{ opinion_count }}
+      </strong>
+    </div>
+    <div class="col-12">
+      <hr>
+    </div>
+  </div>
+  <!-- Displaying Opinions -->
+  <div class="row">
+    <div class="col-md-8 card mb-4  mt-3 ">
+      <h3>Opinions:</h3>
+      <div class="card-body">
+        <!-- We want a for loop inside the empty control tags
+          to iterate through each comment in comments -->
+        {% for opinion in opinions %}
+        <div class="p-2 comments
+          {% if not opinion.approved and opionion.author == user %}
+          faded{% elif not opinion.approved %} d-none{% endif %}">
+          <p class="font-weight-bold">
+            {{ opinion.author }}
+            <span class="font-weight-normal">
+              {{ opinion.created_on }}
+            </span> wrote:
+          </p>
+          <div id="comment{{ comment.id }}">
+            {{ opinion.your_opinion | linebreaks }}
+          </div>
+          {% if not opinion.approved and opinion.author == user %}
+          <p class="approval">
+            This opinion is awaiting approval
+          </p>
+          {% endif %}
+        </div>
+        <!-- Our for loop ends here -->
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+
 </div>
 
 {% endblock content %}

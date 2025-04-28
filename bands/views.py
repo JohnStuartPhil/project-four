@@ -27,9 +27,15 @@ def band_detail(request, slug):
 
     queryset = Band.objects.filter(status=1)
     band = get_object_or_404(queryset, slug=slug)
+    opinions = band.opinions.all().order_by("-created_on")
+    opinion_count = band.opinions.filter(approved=True).count()
 
     return render(
         request,
         "bands/band_detail.html",
-        {"band": band},
+        {
+            "band": band,
+            "opinions": opinions,
+            "opinion_count": opinion_count,
+        },
     )
