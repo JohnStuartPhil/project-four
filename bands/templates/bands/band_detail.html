@@ -51,15 +51,15 @@
           to iterate through each opinion in opinions -->
         {% for opinion in opinions %}
         <div class="p-2 comments
-          {% if not opinion.approved and opinion.author == user %}
-          faded{% elif not opinion.approved %} d-none{% endif %}">
+          {% if not comment.approved and comment.author == user %}
+          faded{% elif not comment.approved %} d-none{% endif %}">
           <p class="font-weight-bold">
             {{ opinion.author }}
             <span class="font-weight-normal">
               {{ opinion.created_on }}
             </span> wrote:
           </p>
-          <div id="comment{{ opinion.id }}">
+          <div id="comment{{ comment.id }}">
             {{ opinion.your_opinion | linebreaks }}
           </div>
           {% if not opinion.approved and opinion.author == user %}

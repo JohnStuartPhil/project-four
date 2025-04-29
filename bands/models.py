@@ -69,7 +69,7 @@ class Band(models.Model):
 
 
 class Opinion(models.Model):
-    band_name = models.ForeignKey(
+    band = models.ForeignKey(
         Band, on_delete=models.CASCADE, related_name="opinions")
     author = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="opinionator")

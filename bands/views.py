@@ -41,8 +41,9 @@ def band_detail(request, slug):
             opinion.save()
             messages.add_message(
                 request, messages.SUCCESS,
-                'Comment submitted and awaiting approval'
+                'Opinion submitted and awaiting approval'
             )
+
     opinion_form = OpinionForm()
 
     return render(
