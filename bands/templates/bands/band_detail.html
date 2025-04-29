@@ -1,5 +1,6 @@
 {% extends 'base.html' %} {% block content %}
 {% load static %}
+{% load crispy_forms_tags %}
 
 <div class="masthead">
     <div class="container">
@@ -47,10 +48,10 @@
       <h3>Opinions:</h3>
       <div class="card-body">
         <!-- We want a for loop inside the empty control tags
-          to iterate through each comment in comments -->
+          to iterate through each opinion in opinions -->
         {% for opinion in opinions %}
         <div class="p-2 comments
-          {% if not opinion.approved and opionion.author == user %}
+          {% if not opinion.approved and opinion.author == user %}
           faded{% elif not opinion.approved %} d-none{% endif %}">
           <p class="font-weight-bold">
             {{ opinion.author }}
@@ -58,7 +59,7 @@
               {{ opinion.created_on }}
             </span> wrote:
           </p>
-          <div id="comment{{ comment.id }}">
+          <div id="comment{{ opinion.id }}">
             {{ opinion.your_opinion | linebreaks }}
           </div>
           {% if not opinion.approved and opinion.author == user %}
@@ -71,6 +72,26 @@
         {% endfor %}
       </div>
     </div>
+
+    <!-- Creating New Opinions -->
+    <div class="col-md-4 card mb-4 mt-3">
+        <div class="card-body">
+          {% if user.is_authenticated %}
+          <h3>Leave your opinion on this band:</h3>
+          <p>Posting as: {{ user.username }}</p>
+          <form id="commentForm" method="post"
+            style="margin-top: 1.3em;">
+            {{ opinion_form | crispy }}
+            {% csrf_token %}
+            <button id="submitButton" type="submit"
+              class="btn btn-signup btn-lg">Submit</button>
+          </form>
+          {% else %}
+          <p>Log in to leave a opinion</p>
+          {% endif %}
+        </div>
+      </div>
+    
   </div>
 
 </div>
