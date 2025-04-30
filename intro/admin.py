@@ -17,4 +17,4 @@ class AboutAdmin(SummernoteModelAdmin):
 @admin.register(CollaborateRequest)
 class CollaborateRequestAdmin(admin.ModelAdmin):
 
-    list_display = ('tell_us_about_your_band', 'read',)
+    list_display = ('your_band_name', 'your_name', 'read',)
