@@ -52,7 +52,7 @@
         {% for opinion in opinions %}
         <div class="p-2 comments
           {% if not comment.approved and comment.author == user %}
-          faded{% elif not comment.approved %} d-none{% endif %}">
+          faded{% elif not comment.approved %} {% endif %}">
           <p class="font-weight-bold">
             {{ opinion.author }}
             <span class="font-weight-normal">
