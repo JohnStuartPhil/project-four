@@ -13,7 +13,7 @@ class About(models.Model):
 
 
 class CollaborateRequest(models.Model):
-    your_band_name = models.CharField(max_length=200)
+    your_band_name = models.CharField(max_length=50)
     email = models.EmailField()
     tell_us_about_your_band = models.TextField()
     read = models.BooleanField(default=False)
