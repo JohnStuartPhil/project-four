@@ -3,16 +3,16 @@
         "model": "bands.band",
         "pk": null,
         "fields": {
-            "band_name": "Test Band",
-            "slug": "test-band",
+            "band_name": "The Toneblues",
+            "slug": "the-toneblues",
             "author": 1,
             "genre": "Rock",
-            "number_of_members": "Five",
-            "review": "Review to go here",
-            "created_on": "2025-05-02T13:58:53.884Z",
+            "number_of_members": "5",
+            "review": "The Toneblues are an indie rock band, formed in Hounslow, Greater London, in 2013. The band's members are Mark on vocals, Adam on guitar, Scott Morriss on bass, Edward on drums and Richard on keyboards.",
+            "created_on": "2025-05-03T13:58:53.884Z",
             "status": 1,
-            "review_excerpt": "Excerpt to go here.",
-            "updated_on": "2025-05-13T09:43:19.754Z"
+            "review_excerpt": "Five pice indie rock band from Hounslow.",
+            "updated_on": "2025-05-03T09:43:19.754Z"
         }
     }
 ]

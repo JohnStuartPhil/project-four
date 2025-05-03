@@ -10,6 +10,8 @@ GENRE_CHOICES = (
     ('Please Select', 'Please Select'),
     ('Pop', 'Pop'),
     ('Rock', 'Rock'),
+    ('Metal', 'Metal'),
+    ('Punk', 'Punk'),
     ('Blues', 'Blues'),
     ('Jazz', 'Jazz'),
     ('Fusion', 'Fusion')
@@ -18,12 +20,12 @@ GENRE_CHOICES = (
 MEMBER_CHOICES = (
     ('Please Select', 'Please Select'),
     ('Solo artist', 'Solo artist'),
-    ('Two', 'Two'),
-    ('Three', 'Three'),
-    ('Four', 'Four'),
-    ('Five', 'Five'),
-    ('Six', 'Six'),
-    ('Seven or more', 'Seven or more')
+    ('2', '2'),
+    ('3', '3'),
+    ('4', '4'),
+    ('5', '5'),
+    ('6', '6'),
+    ('7 or more', '7 or more')
     )
 
 RATING_CHOICES = (
