@@ -1,5 +1,5 @@
 const editButtons = document.getElementsByClassName("btn-edit");
-const opinionText = document.getElementById("id_body");
+const opinionText = document.getElementById("id_your_opinion");
 const opinionForm = document.getElementById("opinionForm");
 const submitButton = document.getElementById("submitButton");
 
@@ -15,7 +15,7 @@ const submitButton = document.getElementById("submitButton");
 */
 for (let button of editButtons) {
     button.addEventListener("click", (e) => {
-      let opinionId = e.target.getAttribute("opinion_id");
+      let opinionId = e.target.getAttribute("comment_id");
       let opinionContent = document.getElementById(`opinion${opinionId}`).innerText;
       opinionText.value = opinionContent;
       submitButton.innerText = "Update";

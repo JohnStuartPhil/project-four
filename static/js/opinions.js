@@ -1,6 +1,6 @@
 const editButtons = document.getElementsByClassName("btn-edit");
 const opinionText = document.getElementById("id_your_opinion");
-const opinionForm = document.getElementById("commentForm");
+const opinionForm = document.getElementById("opinionForm");
 const submitButton = document.getElementById("submitButton");
 
 /**
@@ -14,11 +14,11 @@ const submitButton = document.getElementById("submitButton");
 * - Sets the form's action attribute to the `edit_comment/{commentId}` endpoint.
 */
 for (let button of editButtons) {
-  button.addEventListener("click", (e) => {
-    let opinionId = e.target.getAttribute("opinion_id");
-    let opinionContent = document.getElementById(`comment${opinionId}`).innerText;
-    opinionText.value = opinionContent;
-    submitButton.innerText = "Update";
-    opinionForm.setAttribute("action", `edit_comment/${opinionId}`);
-  });
+    button.addEventListener("click", (e) => {
+      let opinionId = e.target.getAttribute("comment_id");
+      let opinionContent = document.getElementById(`opinion${opinionId}`).innerText;
+      opinionText.value = opinionContent;
+      submitButton.innerText = "Update";
+      opinionForm.setAttribute("action", `edit_opinion/${opinionId}`);
+    });
 }
