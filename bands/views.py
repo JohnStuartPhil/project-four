@@ -1,8 +1,7 @@
-from django.shortcuts import render, get_object_or_404, reverse
+from django.shortcuts import render, get_object_or_404
 from django.views import generic
 from django.contrib import messages
-from django.http import HttpResponseRedirect
-from .models import Band, Opinion
+from .models import Band
 from .forms import OpinionForm
 
 # Create your views here.
@@ -57,27 +56,3 @@ def band_detail(request, slug):
             "opinion_form": opinion_form,
         },
     )
-
-
-def opinion_edit(request, slug, opinion_id):
-    """
-    view to edit opinions
-    """
-    if request.method == "POST":
-
-        queryset = Band.objects.filter(status=1)
-        band = get_object_or_404(queryset, slug=slug)
-        opinion = get_object_or_404(Opinion, pk=opinion_id)
-        opinion_form = OpinionForm(data=request.POST, instance=opinion)
-
-        if opinion_form.is_valid() and opinion.author == request.user:
-            opinion = opinion_form.save(commit=False)
-            opinion.band = band
-            opinion.approved = False
-            opinion.save()
-            messages.add_message(request, messages.SUCCESS, 'Opinion Updated!')
-        else:
-            messages.add_message(
-                request, messages.ERROR, 'Error updating opinion!')
-
-    return HttpResponseRedirect(reverse('band_detail', args=[slug]))
