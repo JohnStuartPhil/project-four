@@ -13,19 +13,19 @@
                 <div class="col-md-4">
                     <div class="card mb-4">
                         <div class="card-body">
-                            <!--<div class="image-container">
-                                <div class="image-flash">
-                                    <p class="author">Author: {{ band.author }}</p>
-                                    
-                                </div>
-                            </div>-->
+                            <div class="image-container">
+                                
+                            </div>
                             <a href="{% url 'band_detail' band.slug %}" class="post-link">
                                 <h2 class="card-title">{{ band.band_name }}</h2>
                                 <h5 class="card-text">Genre: {{ band.genre }}</h5>
                                 <h5 class="card-text">Number of members: {{ band.number_of_members }}</h5>
                                 <p class="card-text">{{ band.review_excerpt }}</p>
-                                
                             </a>
+                            <div class="image-flash">
+                                <p class="author"></p>
+                                <!--<p class="author">Author: {{ band.author }}</p>-->
+                            </div>
 
                             <hr />
                             <p class="card-text text-muted h6">{{ band.created_on}}

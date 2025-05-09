@@ -59,7 +59,7 @@ def band_detail(request, slug):
     )
 
 
-def opinion_edit(request, slug, comment_id):
+def opinion_edit(request, slug, opinion_id):
     """
     view to edit comments
     """
@@ -67,16 +67,35 @@ def opinion_edit(request, slug, comment_id):
 
         queryset = Band.objects.filter(status=1)
         band = get_object_or_404(queryset, slug=slug)
-        comment = get_object_or_404(Opinion, pk=comment_id)
-        comment_form = OpinionForm(data=request.POST, instance=comment)
+        opinion = get_object_or_404(Opinion, pk=opinion_id)
+        opinion_form = OpinionForm(data=request.POST, instance=opinion)
 
-        if comment_form.is_valid() and comment.author == request.user:
-            comment = comment_form.save(commit=False)
-            comment.band = band
-            comment.approved = False
-            comment.save()
+        if opinion_form.is_valid() and opinion.author == request.user:
+            opinion = opinion_form.save(commit=False)
+            opinion.band = band
+            opinion.approved = False
+            opinion.save()
             messages.add_message(request, messages.SUCCESS, 'Opinion Updated!')
         else:
-            messages.add_message(request, messages.ERROR, 'Error updating comment!')
+            messages.add_message(request, messages.ERROR,
+                                 'Error updating opinion!')
 
-    return HttpResponseRedirect(reverse('post_detail', args=[slug]))
+    return HttpResponseRedirect(reverse('band_detail', args=[slug]))
+
+
+def comment_delete(request, slug, opinion_id):
+    """
+    view to delete comment
+    """
+    queryset = Band.objects.filter(status=1)
+    band = get_object_or_404(queryset, slug=slug)
+    opinion = get_object_or_404(Opinion, pk=opinion_id)
+
+    if opinion.author == request.user:
+        opinion.delete()
+        messages.add_message(request, messages.SUCCESS, 'Opinion deleted!')
+    else:
+        messages.add_message(request, messages.ERROR,
+                             'You can only delete your own opinions!')
+
+    return HttpResponseRedirect(reverse('band_detail', args=[slug]))
