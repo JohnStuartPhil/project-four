@@ -59,7 +59,7 @@
               {{ opinion.created_on }}
             </span> wrote:
           </p>
-          <div id="comment{{ comment.id }}">
+          <div id="comment{{ opinion.id }}">
             {{ opinion.your_opinion | linebreaks }}
           </div>
           {% if not opinion.approved and opinion.author == user %}
@@ -68,8 +68,8 @@
           </p>
           {% endif %}
           {% if user.is_authenticated and opinion.author == user %}
-          <button class="btn btn-delete" comment_id="{{ comment.id }}">Delete</button>
-          <button class="btn btn-edit" comment_id="{{ comment.id }}">Edit</button>
+          <button class="btn btn-delete" comment_id="{{ opinion.id }}">Delete</button>
+          <button class="btn btn-edit" comment_id="{{ opinion.id }}">Edit</button>
           {% endif %}
         </div>
         <!-- Our for loop ends here -->
