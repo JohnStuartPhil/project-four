@@ -29,7 +29,7 @@ MEMBER_CHOICES = (
     )
 
 RATING_CHOICES = (
-    ('Please Select', 'Please Select'),
+    ('', ''),
     ('very bad', 'very bad'),
     ('bad', 'bad'),
     ('average', 'average'),
@@ -38,7 +38,7 @@ RATING_CHOICES = (
     )
 
 AGAIN_CHOICES = (
-    ('Please Select', 'Please Select'),
+    ('', ''),
     ('yes', 'yes'),
     ('no', 'no'),
     ('maybe', 'maybe')
@@ -76,9 +76,9 @@ class Opinion(models.Model):
     author = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="opinionator")
     would_you_see_this_band_again = models.CharField(
-        choices=AGAIN_CHOICES, default='Please select', unique=False)
+        choices=AGAIN_CHOICES, default='', unique=False)
     please_rate_the_band = models.CharField(
-        choices=RATING_CHOICES, default='Please select', unique=False)
+        choices=RATING_CHOICES, default='', unique=False)
     your_opinion = models.TextField()
     your_opinion_excerpt = models.TextField(blank=True)
     approved = models.BooleanField(default=False)

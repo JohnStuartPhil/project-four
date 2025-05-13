@@ -59,14 +59,14 @@
               {{ opinion.created_on }}
             </span> wrote:
           </p>
+          <div id="comment{{ opinion.id }}">
+            {{ opinion.your_opinion | linebreaks }}
+          </div>
           <div>
             Rating: {{ opinion.please_rate_the_band | linebreaks }}
           </div>
           <div>
             Would you See the band again?: {{ opinion.would_you_see_this_band_again | linebreaks }}
-          </div>
-          <div id="comment{{ opinion.id }}">
-            {{ opinion.your_opinion | linebreaks }}
           </div>
           {% if not opinion.approved and opinion.author == user %}
           <p class="approval">
@@ -74,8 +74,8 @@
           </p>
           {% endif %}
           {% if user.is_authenticated and opinion.author == user %}
-          <button class="btn btn-delete" comment_id="{{ opinion.id }}">Delete</button>
           <button class="btn btn-edit" comment_id="{{ opinion.id }}">Edit</button>
+          <button class="btn btn-delete" comment_id="{{ opinion.id }}">Delete</button>
           {% endif %}
         </div>
         <!-- Our for loop ends here -->
