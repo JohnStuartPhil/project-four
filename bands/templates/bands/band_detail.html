@@ -59,6 +59,12 @@
               {{ opinion.created_on }}
             </span> wrote:
           </p>
+          <div>
+            Rating: {{ opinion.please_rate_the_band | linebreaks }}
+          </div>
+          <div>
+            Would you See the band again?: {{ opinion.would_you_see_this_band_again | linebreaks }}
+          </div>
           <div id="comment{{ opinion.id }}">
             {{ opinion.your_opinion | linebreaks }}
           </div>
