@@ -13,7 +13,7 @@ def about_band_house(request):
         collaborate_form = CollaborateForm(data=request.POST)
         if collaborate_form.is_valid():
             collaborate_form.save()
-            messages.add_message(request, messages.SUCCESS, 
+            messages.add_message(request, messages.SUCCESS,
                                  "Request to play at BAND HOUSE received! "
                                  "We aim to respond within 2 working days.")
 
