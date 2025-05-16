@@ -80,7 +80,6 @@ class Opinion(models.Model):
     please_rate_the_band = models.CharField(
         choices=RATING_CHOICES, default='', unique=False)
     your_opinion = models.TextField()
-    your_opinion_excerpt = models.TextField(blank=True)
     approved = models.BooleanField(default=False)
     created_on = models.DateTimeField(auto_now_add=True)
 
