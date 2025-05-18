@@ -54,9 +54,9 @@
           {% if not opinion.approved and opinion.author == user %}
           faded{% elif not opinion.approved %} d-none{% endif %}">
           <p class="font-weight-bold">
-            {{ opinion.author }}
+            On {{ opinion.created_on }}, 
             <span class="font-weight-normal">
-              {{ opinion.created_on }}
+              {{ opinion.author }}
             </span> wrote:
           </p>
           <div id="comment{{ opinion.id }}">
