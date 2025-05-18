@@ -42,7 +42,8 @@ def band_detail(request, slug):
             opinion.save()
             messages.add_message(
                 request, messages.SUCCESS,
-                'Opinion submitted and awaiting approval'
+                'Thank you for providing your Opinion. This is '
+                'currently awaiting authorisation to be published'
             )
 
     opinion_form = OpinionForm()
@@ -75,7 +76,10 @@ def opinion_edit(request, slug, opinion_id):
             opinion.band = band
             opinion.approved = False
             opinion.save()
-            messages.add_message(request, messages.SUCCESS, 'Opinion Updated!')
+            messages.add_message(request, messages.SUCCESS, 
+                                 'Thank you for updating your opinion. '
+                                 'This is currently awaiting '
+                                 'authorisation to be published.')
         else:
             messages.add_message(
                 request, messages.ERROR, 'Error updating opinion!')
@@ -94,7 +98,8 @@ def opinion_delete(request, slug, opinion_id):
     if opinion.author == request.user:
         opinion.delete()
         opinion.band = band
-        messages.add_message(request, messages.SUCCESS, 'Opinion deleted!')
+        messages.add_message(request, messages.SUCCESS, 'Your opinion has '
+                             'been deleted!')
     else:
         messages.add_message(
             request, messages.ERROR, 'You can only delete your own opinions!')

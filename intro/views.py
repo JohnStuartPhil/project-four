@@ -14,8 +14,9 @@ def about_band_house(request):
         if collaborate_form.is_valid():
             collaborate_form.save()
             messages.add_message(request, messages.SUCCESS,
-                                 "Request to play at BAND HOUSE received! "
-                                 "We aim to respond within 2 working days.")
+                                 'Thank your for your request to play at '
+                                 'BAND HOUSE. We shall aim to respond to your '
+                                 'request within 5 working days.')
 
     intro = About.objects.all().order_by('-venue_name').first()
     collaborate_form = CollaborateForm()
@@ -28,5 +29,3 @@ def about_band_house(request):
             "collaborate_form": collaborate_form
         },
     )
-
-# Create your views here.

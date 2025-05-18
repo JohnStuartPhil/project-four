@@ -63,14 +63,17 @@
             {{ opinion.your_opinion | linebreaks }}
           </div>
           <div>
-            Rating: {{ opinion.please_rate_the_band | linebreaks }}
+            Rating {{ opinion.please_rate_the_band | linebreaks }}
           </div>
           <div>
-            Would you see the band again?: {{ opinion.would_you_see_this_band_again | linebreaks }}
+            Would you see the band again? {{ opinion.would_you_see_this_band_again | linebreaks }}
           </div>
           {% if not opinion.approved and opinion.author == user %}
           <p class="approval">
-            Thank you for your providing your opinion. This is currently awaiting authorisation to be published
+            Thank you for your providing your opinion. 
+          </p>
+          <p class="approval">
+            This is currently awaiting authorisation to be published
           </p>
           {% endif %}
           {% if user.is_authenticated and opinion.author == user %}
