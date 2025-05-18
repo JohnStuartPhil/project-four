@@ -70,10 +70,7 @@
           </div>
           {% if not opinion.approved and opinion.author == user %}
           <p class="approval">
-            Thank you for your providing your opinion. 
-          </p>
-          <p class="approval">
-            This is currently awaiting authorisation to be published
+            This opinion is currently awaiting authorisation to be published
           </p>
           {% endif %}
           {% if user.is_authenticated and opinion.author == user %}

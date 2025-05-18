@@ -76,7 +76,7 @@ def opinion_edit(request, slug, opinion_id):
             opinion.band = band
             opinion.approved = False
             opinion.save()
-            messages.add_message(request, messages.SUCCESS, 
+            messages.add_message(request, messages.SUCCESS,
                                  'Thank you for updating your opinion. '
                                  'This is currently awaiting '
                                  'authorisation to be published.')
