@@ -66,11 +66,11 @@
             Rating: {{ opinion.please_rate_the_band | linebreaks }}
           </div>
           <div>
-            Would you See the band again?: {{ opinion.would_you_see_this_band_again | linebreaks }}
+            Would you see the band again?: {{ opinion.would_you_see_this_band_again | linebreaks }}
           </div>
           {% if not opinion.approved and opinion.author == user %}
           <p class="approval">
-            This opinion is awaiting approval
+            Thank you for your providing your opinion. This is currently awaiting authorisation to be published
           </p>
           {% endif %}
           {% if user.is_authenticated and opinion.author == user %}
@@ -97,7 +97,7 @@
               class="btn btn-signup btn-lg">Submit</button>
           </form>
           {% else %}
-          <p>Please sign in to leave a opinion</p>
+          <p>Please sign in to leave an opinion</p>
           {% endif %}
         </div>
       </div>
@@ -117,7 +117,7 @@
       </div>
       <div class="modal-body">
         Are you sure you want to delete your opinion?
-        This action cannot be undone.
+        This action cannot be undone once you have pressed delete.
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary"
