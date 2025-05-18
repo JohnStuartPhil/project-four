@@ -26,7 +26,11 @@ body {
 }
 
 .m-3 {
-    color: red;
+    color: rgb(199, 34, 34);
+}
+
+.leave-opinion {
+    text-box: bold;
 }
 
 .card {
