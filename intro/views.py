@@ -17,7 +17,7 @@ def about_band_house(request):
                                  "Request to play at BAND HOUSE received! "
                                  "We aim to respond within 2 working days.")
 
-    intro = About.objects.all().order_by('-updated_on').first()
+    intro = About.objects.all().order_by('-venue_name').first()
     collaborate_form = CollaborateForm()
 
     return render(
