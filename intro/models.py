@@ -25,7 +25,7 @@ MEMBER_CHOICES = (
 
 class About(models.Model):
     venue_name = models.CharField(max_length=50)
-    about_us = models.TextField(max_length=500)
+    about_us = models.TextField(max_length=3000)
 
     def __str__(self):
         return self.venue_name
@@ -40,7 +40,7 @@ class CollaborateRequest(models.Model):
         choices=MEMBER_CHOICES, default='', unique=False
     )
     email = models.EmailField()
-    tell_us_about_your_band = models.TextField(max_length=250)
+    tell_us_about_your_band = models.TextField(max_length=3000)
     read = models.BooleanField(default=False)
 
     def __str__(self):
