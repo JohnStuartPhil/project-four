@@ -43,7 +43,6 @@ AGAIN_CHOICES = (
     ('no', 'no'),
     ('maybe', 'maybe')
     )
-# Create your models here.
 
 
 class Band(models.Model):

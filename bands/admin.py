@@ -12,7 +12,4 @@ class BandAdmin(SummernoteModelAdmin):
     prepopulated_fields = {'slug': ('band_name',)}
     summernote_fields = ('review',)
 
-# Register your models here.
-
-
 admin.site.register(Opinion)

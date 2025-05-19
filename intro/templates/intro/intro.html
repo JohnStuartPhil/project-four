@@ -13,22 +13,12 @@
             {{ intro.about_us | safe }}
         </div>
     </div>
-    <!--<div class="row">
-        <div class="col text-right">
-          Updated on field goes in here 
-    
-          <p class="text-end"><em>Updated on: {{ intro.updated_on }}</em></p>
-        </div>
-    </div>-->
     <div class="row justify-content-center">
         <div class="col-12 col-md-6 my-5">
             <h2>Perform at our venue!</h2>
             <p>Are you a member of an up and coming band with an interest in performing for us?
                 If so, we'd love to hear from you. Please provide us 
               with your details and we shall get back to you to discuss the possibility of performing for us.</p>
-
-            <!-- add your form here. Your submit button should 
-                                have the classes of btn, btn-secondary -->
                 <form method="post">
                     {{ collaborate_form | crispy }}
                     {% csrf_token %}
