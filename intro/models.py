@@ -1,25 +1,5 @@
 from django.db import models
 
-GENRE_CHOICES = (
-    ('', ''),
-    ('Pop', 'Pop'),
-    ('Rock', 'Rock'),
-    ('Blues', 'Blues'),
-    ('Jazz', 'Jazz'),
-    ('Fusion', 'Fusion')
-    )
-
-MEMBER_CHOICES = (
-    ('', ''),
-    ('Solo artist', 'Solo artist'),
-    ('Two', 'Two'),
-    ('Three', 'Three'),
-    ('Four', 'Four'),
-    ('Five', 'Five'),
-    ('Six', 'Six'),
-    ('Seven or more', 'Seven or more')
-    )
-
 # Create your models here.
 
 
