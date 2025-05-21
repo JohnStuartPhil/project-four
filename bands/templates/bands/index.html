@@ -13,9 +13,6 @@
                 <div class="col-md-4">
                     <div class="card mb-4">
                         <div class="card-body">
-                            <div class="image-container">
-                                
-                            </div>
                             <a href="{% url 'band_detail' band.slug %}" class="post-link">
                                 <h2 class="card-title">{{ band.band_name }}</h2>
                                 <h5 class="card-text">Genre: {{ band.genre }}</h5>
@@ -32,7 +29,6 @@
             <div class="row">
                 {% endif %}
                 {% endfor %}
-
             </div>
         </div>
     </div>
